@@ -36,6 +36,18 @@ public class ConfigReader {
 		return read("testURL");
 	}
 
+	public static String getDemoAppURL() {
+		return read("demoAppURL");
+	}
+
+	public static String getUsername() {
+		return read("username");
+	}
+
+	public static String getPassword() {
+		return read("password");
+	}
+
 	public static String getBrowser() {
 		return read("browser");
 	}

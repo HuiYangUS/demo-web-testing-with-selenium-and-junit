@@ -26,6 +26,7 @@ public class MyFirstWebTest {
 		Map<String, Object> prefs = new HashMap<String, Object>();
 		prefs.put("profile.password_manager_leak_detection", false);
 		options.setExperimentalOption("prefs", prefs);
+		options.setBrowserVersion("140");
 		driver = new ChromeDriver(options);
 		driver.manage().window().maximize();
 		// Login
@@ -48,7 +49,8 @@ public class MyFirstWebTest {
 		loginButton.click();
 		CommonTestLibrary.waitInSecondsFor(3);
 		WebElement pageTitle = driver.findElement(By.xpath("//*[@class=\"title\" and text()=\"Products\"]"));
-		assertTrue(pageTitle.isDisplayed());
+		assertTrue(pageTitle.isDisplayed(), "Target page title not found!");
+		System.out.println("Target page title found.");
 	}
 
 }

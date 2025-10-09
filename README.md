@@ -7,4 +7,4 @@
 
 ### Reports
 - mvn clean surefire-report:report -Dtest=DemoSearchTest
-- mvn clean surefire-report:report -Dtest=*/my_tests/* test
+- mvn clean surefire-report:report -Dtest=DemoSearchTest,MyFirstWebTest

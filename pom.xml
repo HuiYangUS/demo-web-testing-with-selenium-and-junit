@@ -52,7 +52,6 @@
 				<configuration>
 					<outputDirectory>${basedir}/target/my-test-reports</outputDirectory>
 					<outputName>my-surefire-report</outputName>
-					<aggregate></aggregate>
 					<linkXRef>false</linkXRef>
 				</configuration>
 			</plugin>

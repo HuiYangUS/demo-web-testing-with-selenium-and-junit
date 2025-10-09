@@ -1,5 +1,6 @@
 package utilities;
 
+import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,6 +27,7 @@ public class DriverFactory {
 				options.setExperimentalOption("prefs", prefs);
 				options.setBrowserVersion(ConfigReader.getBrowserVersion());
 				driver = new ChromeDriver(options);
+				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 				driver.manage().window().maximize();
 				break;
 			}

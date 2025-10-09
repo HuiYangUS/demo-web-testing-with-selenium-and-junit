@@ -4,16 +4,19 @@ import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import utilities.DriverFactory;
 
 public class BasePage {
 
 	public static WebDriver driver = DriverFactory.getDriver();
+	public static WebDriverWait driverWait = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(30));
 
 	protected WebElement locate(By locator) {
 		return driver.findElement(locator);
@@ -39,6 +42,11 @@ public class BasePage {
 
 	protected void click(By locator) {
 		locate(locator).click();
+	}
+
+	protected void simulateClick(By locator) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", locate(locator));
 	}
 
 	protected void hover(By locator) {

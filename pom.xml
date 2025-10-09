@@ -32,6 +32,18 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.junit.platform</groupId>
+			<artifactId>junit-platform-suite</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.junit.platform</groupId>
+			<artifactId>junit-platform-reporting</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
 			<version>4.36.0</version>
@@ -44,6 +56,15 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>3.5.4</version>
+				<configuration>
+					<properties>
+						<configurationParameters>
+							junit.platform.reporting.open.xml.enabled = true
+							junit.platform.reporting.output.dir =
+							target/surefire-reports
+						</configurationParameters>
+					</properties>
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

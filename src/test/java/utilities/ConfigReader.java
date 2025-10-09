@@ -32,6 +32,10 @@ public class ConfigReader {
 		return read("test");
 	}
 
+	public static String getTestURL() {
+		return read("testURL");
+	}
+
 	public static String getBrowser() {
 		return read("browser");
 	}

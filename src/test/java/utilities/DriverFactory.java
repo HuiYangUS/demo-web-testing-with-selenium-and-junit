@@ -1,0 +1,46 @@
+package utilities;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+public class DriverFactory {
+
+	private static WebDriver driver;
+
+	private DriverFactory() {
+		// Singleton
+	}
+
+	public static WebDriver getDriver() {
+		if (driver == null) {
+			String browser = ConfigReader.getBrowser().toLowerCase();
+			switch (browser) {
+			case "chrome": {
+				ChromeOptions options = new ChromeOptions();
+				Map<String, Object> prefs = new HashMap<String, Object>();
+				prefs.put("profile.password_manager_leak_detection", false);
+				options.setExperimentalOption("prefs", prefs);
+				options.setBrowserVersion(ConfigReader.getBrowserVersion());
+				driver = new ChromeDriver(options);
+				driver.manage().window().maximize();
+				break;
+			}
+			default:
+				throw new IllegalArgumentException("Unexpected value: " + browser);
+			}
+		}
+		return driver;
+	}
+
+	public static void shutDownAllDrivers() {
+		if (driver != null) {
+			driver.quit();
+			driver = null;
+		}
+	}
+
+}

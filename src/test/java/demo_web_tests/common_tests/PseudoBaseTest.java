@@ -2,10 +2,12 @@ package demo_web_tests.common_tests;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.WebDriver;
 
 import utilities.DriverFactory;
 
+@ExtendWith(FailedTestExtension.class)
 public class PseudoBaseTest {
 
 	protected WebDriver driver;

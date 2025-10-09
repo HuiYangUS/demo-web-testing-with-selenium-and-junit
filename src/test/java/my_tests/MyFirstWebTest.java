@@ -43,6 +43,7 @@ public class MyFirstWebTest {
 		usernameTextbox.sendKeys("standard_user");
 		WebElement passwordTextbox = driver.findElement(By.id("password"));
 		passwordTextbox.sendKeys("secret_sauce");
+		CommonTestLibrary.waitInSecondsFor(1);
 		WebElement loginButton = driver.findElement(By.id("login-button"));
 		loginButton.click();
 		CommonTestLibrary.waitInSecondsFor(3);

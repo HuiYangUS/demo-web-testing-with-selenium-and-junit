@@ -27,7 +27,7 @@ public class FailedTestExtension implements AfterTestExecutionCallback {
 		if (context.getExecutionException().isPresent()) {
 			try {
 				File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-				FileUtils.copyFile(screenshot, new File("target/screenshots/" + imgFileName + ".png"));
+				FileUtils.copyFile(screenshot, new File("target/test-screenshots/" + imgFileName + ".png"));
 			} catch (IOException e) {
 				System.err.println("Selenium WebDriver failed to take a screenshot!");
 				e.printStackTrace();

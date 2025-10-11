@@ -9,7 +9,9 @@ import utilities.CommonTestLibrary;
 public class HomePage extends BasePage {
 
 	private By pageTitle = By.xpath("//h1[contains(text(), 'Dashboard')]");
-	private By workItemsButton = By.xpath("//button[text()=' Work Items']");
+	@SuppressWarnings("unused")
+	private By welcomeMessage = By.xpath("//h1[contains(text(), 'Welcome')]");
+	private By workItemsButton = By.xpath("//a/button/i[contains(@class, 'folder-open')]/..");
 
 	public void waitForPageTileToBeVisible() {
 		driverWait.until(ExpectedConditions.visibilityOfElementLocated(pageTitle));

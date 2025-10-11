@@ -50,7 +50,8 @@ public class BasePage {
 	}
 
 	protected void hover(By locator) {
-		new Actions(driver, Duration.ofSeconds(1)).moveToElement(locate(locator)).perform();
+		Actions actions = new Actions(driver);
+		actions.moveToElement(locate(locator)).pause(Duration.ofSeconds(1)).build().perform();
 	}
 
 }

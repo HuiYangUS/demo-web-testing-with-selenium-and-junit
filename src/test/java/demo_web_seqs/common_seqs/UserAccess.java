@@ -19,7 +19,7 @@ public class UserAccess {
 		loginPage.typeTextToPasswordTextbox(ConfigReader.getPassword());
 		loginPage.clickLoginButton();
 		homePage.waitForPageTileToBeVisible();
-		CommonTestLibrary.waitInSecondsFor(3);
+		CommonTestLibrary.waitInSecondsFor(1);
 	}
 
 	public static void userLogout() throws Exception {

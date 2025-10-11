@@ -26,6 +26,9 @@ public class DriverFactory {
 				prefs.put("profile.password_manager_leak_detection", false);
 				options.setExperimentalOption("prefs", prefs);
 				options.setBrowserVersion(ConfigReader.getBrowserVersion());
+				if (isAutomatedChromeHeadless()) {
+					options.addArguments("--headless");
+				}
 				driver = new ChromeDriver(options);
 				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 				driver.manage().window().maximize();
@@ -43,6 +46,19 @@ public class DriverFactory {
 			driver.quit();
 			driver = null;
 		}
+	}
+
+	private static boolean isAutomatedChromeHeadless() {
+		String targetValue = System.getProperty("headless");
+		boolean isChromeHeadless = false;
+		if (targetValue != null) {
+			try {
+				isChromeHeadless = Boolean.parseBoolean(targetValue);
+			} catch (Exception e) {
+				System.err.println("Failed to locate automated chrome status, default to GUI.");
+			}
+		}
+		return isChromeHeadless;
 	}
 
 }

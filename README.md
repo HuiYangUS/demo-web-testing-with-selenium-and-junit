@@ -12,4 +12,5 @@
 - mvn clean surefire-report:report -Dtest=DemoSearchTest
 - mvn clean surefire-report:report -Dtest=DemoSearchTest,MyFirstWebTest
 - mvn clean surefire-report:report -Dtest=MyRegressionTestSuite
+- mvn clean surefire-report:report -Dtest=MyRegressionTestSuite -Dheadless=true
 - mvn clean test -Dtest=MyRegressionTestSuite

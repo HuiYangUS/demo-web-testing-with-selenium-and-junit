@@ -16,6 +16,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    - name: Create config file
+      run: echo "${{ secrets.CONFIG_HUI_YANG }}" > src/test/resources/config.properties
     - name: Set up JDK 17
       uses: actions/setup-java@v4
       with:

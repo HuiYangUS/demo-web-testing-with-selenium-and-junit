@@ -36,7 +36,7 @@ public class DriverFactory {
 				break;
 			}
 			default:
-				throw new IllegalArgumentException("Unexpected value: " + browser);
+				throw new IllegalArgumentException("Unsupported browser: " + browser);
 			}
 		}
 		return threadLocalDriver.get();

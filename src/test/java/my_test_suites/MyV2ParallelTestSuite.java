@@ -6,7 +6,7 @@ import org.junit.platform.suite.api.Suite;
 import org.junit.platform.suite.api.SuiteDisplayName;
 
 @Suite
-@SuiteDisplayName("Demo Test Set")
+@SuiteDisplayName("Demo Parallel Test Set V2")
 @SelectPackages("demo_web_tests.regression_tests")
 @ConfigurationParameter(key = "junit.jupiter.execution.parallel.enabled", value = "true")
 @ConfigurationParameter(key = "junit.jupiter.execution.parallel.mode.default", value = "concurrent")

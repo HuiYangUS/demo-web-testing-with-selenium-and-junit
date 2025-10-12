@@ -16,13 +16,12 @@ import demo_app_pages.home_pages.HomePage;
 import demo_web_tests.common_tests.WebBaseTest;
 import utilities.DownloadsFolderWatcher;
 import utilities.FileExtension;
-import utilities.PageManager;
 import utilities.WorkbookLibrary;
 
 @TestMethodOrder(OrderAnnotation.class)
 public class DownloadVendorListTest extends WebBaseTest {
 
-	HomePage homePage = PageManager.findHomePage();
+	HomePage homePage = new HomePage();
 
 	@Test
 	@Order(1)
@@ -36,7 +35,7 @@ public class DownloadVendorListTest extends WebBaseTest {
 		assertNotNull(targetFileName, "Target file not found!");
 		assertTrue(targetFileName.contains("Vendor List"), "Wrong file!");
 		String targetFilePath = "C:/Users/" + System.getProperty("user.name") + "/Downloads/" + targetFileName;
-		System.out.println("Read file at: " + targetFilePath);
+		System.out.println("Read file at --> " + targetFilePath);
 		XSSFWorkbook targetWorkbook = WorkbookLibrary.findWorkbookFromFilePath(targetFilePath);
 		try {
 			XSSFSheet dataSheet = targetWorkbook.getSheet("Vendor list");

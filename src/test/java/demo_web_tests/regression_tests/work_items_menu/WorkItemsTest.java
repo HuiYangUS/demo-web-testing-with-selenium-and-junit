@@ -12,12 +12,11 @@ import org.junit.jupiter.api.Test;
 import demo_app_pages.home_pages.HomePage;
 import demo_app_pages.work_items_pages.WorkItemsPage;
 import demo_web_tests.common_tests.WebBaseTest;
-import utilities.PageManager;
 
 public class WorkItemsTest extends WebBaseTest {
 
-	HomePage homePage = PageManager.findHomePage();
-	WorkItemsPage workItemsPage = PageManager.findWorkItemsPage();
+	HomePage homePage = new HomePage();
+	WorkItemsPage workItemsPage = new WorkItemsPage();
 
 	@Test
 	@DisplayName("Test a user views current assigned work items")

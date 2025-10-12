@@ -11,13 +11,12 @@ import demo_app_pages.home_pages.HomePage;
 import demo_web_tests.common_tests.BaseTest;
 import utilities.CommonTestLibrary;
 import utilities.ConfigReader;
-import utilities.PageManager;
 
 public class LoginThenLogoutTest extends BaseTest {
 
-	LoginPage loginPage = PageManager.findloginPage();
-	HomePage homePage = PageManager.findHomePage();
-	TopNavBar topNavBar = PageManager.findTopNavBar();
+	LoginPage loginPage = new LoginPage();
+	HomePage homePage = new HomePage();
+	TopNavBar topNavBar = new TopNavBar();
 
 	@Test
 	@DisplayName("Test a user login then logout successfully")

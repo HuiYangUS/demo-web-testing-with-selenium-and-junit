@@ -2,7 +2,6 @@ package demo_app_pages.common_pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import utilities.CommonTestLibrary;
 
 public class LoginPage extends BasePage {

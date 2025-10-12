@@ -1,15 +1,15 @@
 package my_tests;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
 import utilities.ConfigReader;
 
-public class ConfigTest {
+public class ProjectConfigTest {
 
 	@Test
-	public void runTest() {
+	public void findConfigFile() {
 		String targetTestValue = ConfigReader.getTestValue();
 		assertNotNull(targetTestValue, "Test value failed to be located on config file!");
 		System.out.println("Test value = " + targetTestValue);

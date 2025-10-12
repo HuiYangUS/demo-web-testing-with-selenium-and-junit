@@ -12,6 +12,8 @@ public class HomePage extends BasePage {
 	@SuppressWarnings("unused")
 	private By welcomeMessage = By.xpath("//h1[contains(text(), 'Welcome')]");
 	private By workItemsButton = By.xpath("//a/button/i[contains(@class, 'folder-open')]/..");
+	private By vendorsButton = By.xpath("//button/i[contains(@class, 'truck')]/..");
+	private By downloadVendorListDropdownLinkButton = By.xpath("//a[text()='Download Vendor List']");
 
 	public void waitForPageTileToBeVisible() {
 		driverWait.until(ExpectedConditions.visibilityOfElementLocated(pageTitle));
@@ -20,6 +22,14 @@ public class HomePage extends BasePage {
 
 	public void clickWorkItemsButton() {
 		click(workItemsButton);
+	}
+
+	public void hoverVendorsButton() {
+		hover(vendorsButton);
+	}
+
+	public void clickDownloadVendorListDropdownLinkButton() {
+		click(downloadVendorListDropdownLinkButton);
 	}
 
 }

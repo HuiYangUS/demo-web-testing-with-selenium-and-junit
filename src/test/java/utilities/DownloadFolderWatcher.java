@@ -11,7 +11,7 @@ import java.nio.file.WatchService;
 
 public class DownloadFolderWatcher {
 
-	public static String findDownloadedFileFor(String fileExtension) {
+	public static String findDownloadedFileFor(FileExtension extension) {
 		String targetFileName = null;
 		try {
 			WatchService watchService = FileSystems.getDefault().newWatchService();
@@ -36,13 +36,13 @@ public class DownloadFolderWatcher {
 					// To receive further events, reset the key
 					key.reset();
 				}
-				if (targetFileName.contains(fileExtension)) {
+				if (targetFileName.contains(FileExtension.EXCEL.extension) && !targetFileName.contains(".crdownload")) {
 					System.out.println("Target downloaded file was found.");
 					break;
 				}
 			}
 		} catch (IOException | InterruptedException e) {
-			e.printStackTrace();
+//			e.printStackTrace();
 			throw new RuntimeException("Target downloaded file not found!");
 		}
 		return targetFileName;

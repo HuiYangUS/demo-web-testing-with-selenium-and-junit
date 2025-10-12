@@ -1,4 +1,4 @@
-package demo_web_tests.regression_tests;
+package demo_web_tests.regression_tests.work_items_menu;
 
 import static org.junit.jupiter.api.Assertions.*;
 

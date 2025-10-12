@@ -10,14 +10,14 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 public class DriverFactory {
 
-	private static WebDriver driver;
+	private static ThreadLocal<WebDriver> threadLocalDriver = new ThreadLocal<>();
 
 	private DriverFactory() {
 		// Singleton
 	}
 
 	public static WebDriver getDriver() {
-		if (driver == null) {
+		if (threadLocalDriver.get() == null) {
 			String browser = ConfigReader.getBrowser().toLowerCase();
 			switch (browser) {
 			case "chrome": {
@@ -29,22 +29,23 @@ public class DriverFactory {
 				if (isAutomatedChromeHeadless()) {
 					options.addArguments("--headless");
 				}
-				driver = new ChromeDriver(options);
+				ChromeDriver driver = new ChromeDriver(options);
 				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 				driver.manage().window().maximize();
+				threadLocalDriver.set(driver);
 				break;
 			}
 			default:
 				throw new IllegalArgumentException("Unexpected value: " + browser);
 			}
 		}
-		return driver;
+		return threadLocalDriver.get();
 	}
 
 	public static void shutDownAllDrivers() {
-		if (driver != null) {
-			driver.quit();
-			driver = null;
+		if (threadLocalDriver.get() != null) {
+			threadLocalDriver.get().quit();
+			threadLocalDriver.set(null);
 		}
 	}
 

@@ -4,6 +4,7 @@ import java.time.Duration;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -26,6 +27,7 @@ public class HoverTest {
 	}
 
 	@Test
+	@Tag("parallel")
 	public void runTest() {
 		By demoHoverButton = By.xpath(
 				"//h2[text()='CSS Hover Effects on Button'][1]/following-sibling::div//div[text()='Hover Me'][contains(@class, 'hover:text-green-100')]");

@@ -20,7 +20,7 @@ public class CustomerServiceTests extends WebBaseTest {
 	@CsvFileSource(files = "src/test/resources/test-data/my-data/Data_Driven_Test.csv", numLinesToSkip = 1)
 	@DisplayName("Test a customer service representative takes a caller's information")
 	@Tags({ @Tag("regression"), @Tag("ID1003"), @Tag("active") })
-	public void enterCallerInformation(String name, String city, String status) throws Exception {
+	public void enterCallerInformation(String name, String city, String status) {
 		homePage.clickCustomerServiceButton();
 		customerServicePage.waitForPageTileToBeVisible();
 		customerServicePage.typeTextToCallerNameTextbox(name);

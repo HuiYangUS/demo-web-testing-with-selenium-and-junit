@@ -15,8 +15,13 @@ import utilities.DriverFactory;
 
 public class BasePage {
 
-	public WebDriver driver = DriverFactory.getDriver();
-	public WebDriverWait driverWait = new WebDriverWait(driver, Duration.ofSeconds(30));
+	public WebDriver driver;
+	public WebDriverWait driverWait;
+
+	public BasePage() {
+		driver = DriverFactory.getDriver();
+		driverWait = new WebDriverWait(driver, Duration.ofSeconds(30));
+	}
 
 	protected WebElement locate(By locator) {
 		return driver.findElement(locator);

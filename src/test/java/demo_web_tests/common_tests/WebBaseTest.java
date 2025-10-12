@@ -5,7 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.WebDriver;
 
-import demo_web_seqs.common_seqs.UserAccess;
+import demo_web_seqs.common_seqs.UserAccessSeq;
 import utilities.ConfigReader;
 import utilities.DriverFactory;
 
@@ -18,16 +18,15 @@ public class WebBaseTest {
 	public void setUp() {
 		driver = DriverFactory.getDriver();
 		driver.get(ConfigReader.getDemoAppURL());
-		UserAccess.userLogin();
+		UserAccessSeq.userLogin();
 	}
 
 	@AfterEach
 	public void tearDown() {
 		try {
-			UserAccess.userLogout();
+			UserAccessSeq.userLogout();
 		} catch (Exception e) {
 			System.err.println("User failed to logout!");
-			e.printStackTrace();
 		}
 		DriverFactory.shutDownAllDrivers();
 	}

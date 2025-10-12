@@ -10,15 +10,11 @@ import utilities.ConfigReader;
  * Warning: Without using PageManager, every web sequence must initialize all
  * the page objects that are being used.
  */
-public class UserAccess {
-
-	private static LoginPage loginPage;
-	private static HomePage homePage;
-	private static TopNavBar topNavBar;
+public class UserAccessSeq {
 
 	public static void userLogin() {
-		loginPage = new LoginPage();
-		homePage = new HomePage();
+		LoginPage loginPage = new LoginPage();
+		HomePage homePage = new HomePage();
 		System.out.println("User accesses the login page.");
 		loginPage.waitForPageTileToBeVisible();
 		loginPage.typeTextToEmailTextbox(ConfigReader.getUsername());
@@ -29,8 +25,8 @@ public class UserAccess {
 	}
 
 	public static void userLogout() throws Exception {
-		topNavBar = new TopNavBar();
-		loginPage = new LoginPage();
+		TopNavBar topNavBar = new TopNavBar();
+		LoginPage loginPage = new LoginPage();
 		topNavBar.clickLogoutButton();
 		CommonTestLibrary.waitInSecondsFor(1);
 		loginPage.waitForPageTileToBeVisible();

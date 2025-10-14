@@ -13,7 +13,7 @@ import utilities.DriverFactory;
 
 public class HoverTest {
 
-	protected WebDriver driver;
+	WebDriver driver;
 
 	@BeforeEach
 	public void setUp() {

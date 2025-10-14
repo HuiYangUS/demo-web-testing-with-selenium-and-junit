@@ -13,7 +13,7 @@ import utilities.DriverFactory;
 
 public class DemoSelectionsTest {
 
-	protected WebDriver driver;
+	WebDriver driver;
 
 	@BeforeEach
 	public void setUp() {

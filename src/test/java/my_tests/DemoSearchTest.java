@@ -11,7 +11,7 @@ import demo_web_tests.common_tests.PseudoBaseTest;
 
 public class DemoSearchTest extends PseudoBaseTest {
 
-	protected TargetMainPage targetPage = new TargetMainPage();
+	TargetMainPage targetPage = new TargetMainPage();
 
 	/*
 	 * Scenario: This test serves as a demo as well as testing on failed test

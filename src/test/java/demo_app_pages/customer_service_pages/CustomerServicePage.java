@@ -11,6 +11,9 @@ public class CustomerServicePage extends BasePage {
 	private By callerNameTextbox = By.id("callername");
 	private By callerCityTextbox = By.id("callercity");
 	private By callerStatusTextbox = By.id("callerstatus");
+	private By mockIncomingPhoneCallButton = By.id("btn-trigger");
+	private By phoneNumber = By.id("phoneNumber");
+	private By incomingCallStatus = By.id("incomingCallSpan");
 
 	public void waitForPageTileToBeVisible() {
 		driverWait.until(ExpectedConditions.visibilityOfElementLocated(pageTitle));
@@ -27,6 +30,18 @@ public class CustomerServicePage extends BasePage {
 
 	public void typeTextToCallerStatusTextbox(String callerStatus) {
 		typeTextTo(callerStatusTextbox, callerStatus);
+	}
+
+	public void triggerMockPhoneCall() {
+		click(mockIncomingPhoneCallButton);
+	}
+
+	public String getPhoneNumber() {
+		return locate(phoneNumber).getText();
+	}
+
+	public String getIncomingPhoneCallStatus() {
+		return locate(incomingCallStatus).getText();
 	}
 
 }

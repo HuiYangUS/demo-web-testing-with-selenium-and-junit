@@ -2,7 +2,7 @@ package utilities;
 
 public enum FileExtension {
 
-	EXCEL(".xlsx");
+	EXCEL(".xlsx"), PDF(".pdf");
 
 	final String extension;
 

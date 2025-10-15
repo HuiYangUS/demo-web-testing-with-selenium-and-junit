@@ -8,6 +8,7 @@ import java.nio.file.StandardWatchEventKinds;
 import java.nio.file.WatchEvent;
 import java.nio.file.WatchKey;
 import java.nio.file.WatchService;
+import java.util.concurrent.TimeUnit;
 
 public class DownloadsFolderWatcher {
 
@@ -25,14 +26,15 @@ public class DownloadsFolderWatcher {
 		}
 	}
 
-	public static String findDownloadedFileFor(FileExtension extension) {
+	public static String findDownloadedFileFor(FileExtension extension) throws InterruptedException {
 		String targetFileName = null;
-		try {
-			long startTime = System.currentTimeMillis();
-			long endTime = startTime + 30 * 1000;
-			while (System.currentTimeMillis() < endTime) {
-				WatchKey key = watchService.take();
+		long startTime = System.currentTimeMillis();
+		long endTime = startTime + 30 * 1000;
 
+		while (System.currentTimeMillis() < endTime) {
+			WatchKey key = watchService.poll(1, TimeUnit.SECONDS); // Poll with a timeout
+
+			if (key != null) {
 				for (WatchEvent<?> event : key.pollEvents()) {
 					// Handle the specific event
 					if (event.kind() == StandardWatchEventKinds.ENTRY_CREATE) {
@@ -42,19 +44,17 @@ public class DownloadsFolderWatcher {
 						targetFileName = event.context().toString();
 						System.out.println("File modified: " + event.context());
 					}
-
 					// To receive further events, reset the key
 					key.reset();
 				}
-				if (targetFileName.contains(FileExtension.EXCEL.extension) && !targetFileName.contains(".crdownload")) {
-					System.out.println("Target downloaded file was found.");
-					break;
-				}
 			}
-		} catch (InterruptedException e) {
-//			e.printStackTrace();
-			throw new RuntimeException("Failed to finish scanning the Downloads folder.");
+
+			if (targetFileName.contains(extension.extension) && !targetFileName.contains(".crdownload")) {
+				System.out.println("Target downloaded file was found.");
+				break;
+			}
 		}
+
 		return targetFileName;
 	}
 

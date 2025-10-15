@@ -13,20 +13,11 @@ import org.junit.jupiter.api.Test;
 public class TestPDF {
 
 	@Test
-	public void readPDF() {
-		PDDocument pdDocument = null;
-		try {
-			pdDocument = Loader.loadPDF(new File("src/test/resources/test-data/my-data/git-cheat-sheet-education.pdf"));
-		} catch (IOException e) {
-			System.err.println("Failed to load target PDF file");
-		}
-		String contentPDF = null;
+	public void readPDF() throws IOException {
+		PDDocument pdDocument = Loader
+				.loadPDF(new File("src/test/resources/test-data/my-data/git-cheat-sheet-education.pdf"));
 		PDFTextStripper textStripper = new PDFTextStripper();
-		try {
-			contentPDF = textStripper.getText(pdDocument);
-		} catch (IOException e) {
-			System.err.println("Failed to extract textual content from a PDF file");
-		}
+		String contentPDF = textStripper.getText(pdDocument);
 		assertNotNull(contentPDF, "There is no data in this PDF file.");
 		System.out.println(contentPDF);
 	}

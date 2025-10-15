@@ -27,7 +27,7 @@ public class DownloadVendorListTest extends WebBaseTest {
 	@Order(1)
 	@DisplayName("Test a user downloads and then view the vendor list")
 	@Tags({ @Tag("regression"), @Tag("ID1002"), @Tag("active") })
-	public void downloadThenViewVendorList() {
+	public void downloadThenViewVendorList() throws InterruptedException {
 		homePage.hoverVendorsButton();
 		DownloadsFolderWatcher.registerDownloadsFolder();
 		homePage.clickDownloadVendorListDropdownLinkButton();

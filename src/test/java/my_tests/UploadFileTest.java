@@ -13,6 +13,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -55,7 +56,7 @@ public class UploadFileTest {
 	}
 
 	@Test
-	@Tag("file")
+	@Tags({ @Tag("file"), @Tag("robot") })
 	public void runTestV2() throws AWTException {
 		By uploadFileButton = By.xpath("//input[@id='file']/..");
 		String targetFilePath = System.getProperty("user.dir")

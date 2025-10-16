@@ -1,0 +1,11 @@
+{
+	"pattern": "https://[*.]your-target-url.com",
+	"filter": {
+		"ISSUER": {
+			"CN": "Certificate Issued By AWS"
+		},
+		"SUBJECT": {
+			"CN": "HUI YANG"
+		}
+	}
+}

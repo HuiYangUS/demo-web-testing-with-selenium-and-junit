@@ -9,7 +9,7 @@ import demo_web_seqs.common_seqs.UserAccessSeq;
 import utilities.ConfigReader;
 import utilities.DriverFactory;
 
-@ExtendWith(FailedTestExtension.class)
+@ExtendWith({ FailedTestExtension.class, ExtentReportsExtension.class })
 public class WebBaseTest {
 
 	protected WebDriver driver;

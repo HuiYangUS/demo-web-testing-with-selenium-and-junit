@@ -10,7 +10,7 @@ import demo_web_tests.common_tests.ExtentReportsBaseTestSuite;
 @Suite
 @SuiteDisplayName("Demo Test Set")
 @SelectPackages("demo_web_tests.regression_tests")
-@IncludeTags("regression")
-public class MyRegressionTestSuite extends ExtentReportsBaseTestSuite {
+@IncludeTags("ID1001")
+public class MyTestSuite extends ExtentReportsBaseTestSuite {
 
 }

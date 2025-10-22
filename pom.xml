@@ -54,6 +54,7 @@
 		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-java</artifactId>
+			<scope>test</scope>
 		</dependency>
 
 		<!-- Test Engine: Use for Test Detection & Use in Test Runner -->

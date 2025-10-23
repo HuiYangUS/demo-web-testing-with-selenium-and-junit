@@ -10,6 +10,9 @@ import org.apache.poi.ss.usermodel.DateUtil;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+/**
+ * Using XSSFWorkbook class to read '.xlsx' files
+ */
 public class WorkbookLibrary {
 
 	public static XSSFWorkbook findWorkbookFromFilePath(String targetFilePath) {
